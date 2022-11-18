@@ -5,7 +5,7 @@ import java.io.IOException;
 public class movingExtension {
    public static void main(String args[]) throws IOException {
       //Creating a File object for directory
-      String Source = "D:\\COURSES\\BTECH\\PROJECT\\FileSegregation\\Unsegregated";
+      String Source = "D:\\COURSES\\BTECH\\PROJECT\\FileSegregation\\GitIgnore\\Unsegregated";
       File directoryPath = new File(Source);
       FilenameFilter textFilefilter = new FilenameFilter(){
          public boolean accept(File dir, String name) {
@@ -23,8 +23,8 @@ public class movingExtension {
       // System.out.println("List of the text files in the specified directory:");
       
       for(String fileName : filesList) {
-        Source = "D:\\COURSES\\BTECH\\PROJECT\\FileSegregation\\Unsegregated\\" + fileName;
-        String des = "D:\\COURSES\\BTECH\\PROJECT\\FileSegregation\\SegregatedPDF\\" + fileName;
+        Source = "D:\\COURSES\\BTECH\\PROJECT\\FileSegregation\\GitIgnore\\Unsegregated\\" + fileName;
+        String des = "D:\\COURSES\\BTECH\\PROJECT\\FileSegregation\\GitIgnore\\SegregatedPDF\\" + fileName;
         System.out.println(des);
         File file1 = new File(Source);
         File file2 = new File(des);

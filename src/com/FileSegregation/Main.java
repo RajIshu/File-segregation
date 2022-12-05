@@ -1,21 +1,37 @@
 package com.FileSegregation;
 
 import javax.swing.*;
-import javax.xml.transform.Source;
-import java.io.File;
-import java.io.FilenameFilter;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.TreeMap;
 
 public class Main {
 
+    public static DateTimeFormatter datetimef = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+    static LocalDateTime nowtime = LocalDateTime.now();
 
     public static void main(String[] args) throws Exception {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy-HH-mm-ss");
+        LocalDateTime now = LocalDateTime.now();
+
+//        System.out.println(dtf.format(now));
+
+        String fileName = "LogFiles\\";
+//        System.out.println(fileName);
+        File f = new File(fileName);
+        if(!f.exists()){
+            f.mkdirs();
+        }
+        String mainPath = fileName + dtf.format(now) + ".txt";
+        FileOutputStream fo = new FileOutputStream(mainPath);
+
+        System.setOut(new PrintStream(fo));
+
         String input;
 
         String[] st = {"Specific File", "Individual File"};
@@ -61,8 +77,8 @@ public class Main {
 
     public static void specificFile(String input, String src, String des) throws IOException {
         String Source = src;
-        System.out.println(Source);
-        System.out.println(des);
+//        System.out.println(Source);
+//        System.out.println(des);
         File directoryPath = new File(Source);
         FilenameFilter textFilefilter = new FilenameFilter() {
             public boolean accept(File dir, String name) {
@@ -76,7 +92,7 @@ public class Main {
         };
         //List of all the text files
         String filesList[] = directoryPath.list(textFilefilter);
-        System.out.println(filesList.length);
+//        System.out.println(filesList.length);
         // System.out.println("List of the text files in the specified directory:");
 
 //        System.out.println(Arrays.toString(filesList));
@@ -84,10 +100,10 @@ public class Main {
 //            System.out.println("FileName: " + fileName);
             String sr = Source + "\\" + fileName;
 //            System.out.println("S: " + Source);
-            System.out.println("Moving File = " + sr);
+            System.out.println(datetimef.format(nowtime) + ": Moving File = " + sr);
             String target = des + "\\" + fileName;
 //            System.out.println("D: " + des);
-            System.out.println("Moved File = " + target);
+            System.out.println(datetimef.format(nowtime) + ": Moved File = " + target + "\n\n");
             File targetCursor = new File(target);
             if(!targetCursor.exists()){
                 Path temp = Files.move(Paths.get(sr), Paths.get(target));
@@ -111,7 +127,7 @@ public class Main {
         if(bool){
             System.out.println("Succesfully");
         } */
-            System.out.println(fileName);
+//            System.out.println(fileName);
         }
     }
 
@@ -147,8 +163,8 @@ public class Main {
 //                System.out.println(fileName);
                 if(fileName.endsWith(dotExt)){
 //                    System.out.println("RUNNING DOT");
-                    System.out.println("Moving File = " + src + fileName);
-                    System.out.println("Moved File = " + src + matchStr + "\\" + fileName);
+                    System.out.println(datetimef.format(nowtime) + ": Moving File = " + src + fileName);
+                    System.out.println(datetimef.format(nowtime) + ": Moved File = " + src + matchStr + "\\" + fileName + "\n");
                     String sour = src + fileName;
                     String target = src + matchStr + "\\" + fileName;
                     File targetCursor = new File(target);

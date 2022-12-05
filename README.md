@@ -33,4 +33,4 @@ Give a ⭐️ if you like this project and want to support it!
 <br/>
 
 ## 📝LICENCE
-This project is under the [GNU GENERAL PUBLIC LICENSE Version 3](./LICENSE) license.
+This project is under the [GNU GENERAL PUBLIC LICENSE](./LICENSE) license.

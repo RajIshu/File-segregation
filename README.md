@@ -8,12 +8,15 @@
 
 This is a file segregator software which basically segregate files using some parameters. It basically makes our file organizing task easier. 
 
+<br/>
 
 ## Technologies
 
 * [Java](#)
 * [Launch4J](#)
 * [JOptionPane](#)
+
+<br/>
 
 ## Contributors
 
@@ -22,8 +25,12 @@ This is a file segregator software which basically segregate files using some pa
 * [Jayendra Vardhan Singh](https://github.com/jayendra-587)
 * [Gourav](#)
 
+<br/>
+
 ## :people_hugging: Show your support
 Give a ⭐️ if you like this project and want to support it!
+
+<br/>
 
 ## 📝LICENCE
 This project is under the [GNU GENERAL PUBLIC LICENSE Version 3](./LICENSE) license.
